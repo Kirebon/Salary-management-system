@@ -1,0 +1,43 @@
+<table border="1" width="80%" align='center'>
+    <tr>
+        <td></td>
+        <td>序号</td>
+        <td>权限</td>
+        <td>姓名</td>
+        <td>密码</td>
+        <td>工资</td>
+    </tr>
+    
+<%    
+	Statement stmt = null;
+	ResultSet rs = null;
+	Connection conn= null;
+	try{
+		//1．注册数据库的驱动
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		//2.通过 DriverManager获取数据库连接
+		String url ="jdbc:mysql://localhost:3306/jdbc?serverTimezone=GMT%2B8";
+		String username= "root";
+		String password= "123456";
+		conn = DriverManager.getConnection(url, username, password);
+		//3.通过Connection对象获取Statement对象
+		stmt = conn.createStatement();	
+		//4.使用Statement执行sQL语句。
+		String sql = "select * from user";
+		rs= stmt.executeQuery(sql);
+    int i = 1;  
+    while( rs.next()){
+%>
+
+    <tr>
+        <td><%out.print(i++);%></td>
+        <td><%=rs.getString("id") %></td>
+        <td><%=rs.getString("admin")%></td>
+        <td><%=rs.getString("name")%></td>
+        <td><%=rs.getString("password") %></td>
+        <td><%=rs.getString("gongzi") %></td>
+    </tr>
+<%
+    }
+%>    
+</table>

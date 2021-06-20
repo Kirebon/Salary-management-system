@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<c3p0-config>
+    
+    <!-- 默认的   -->
+    <default-config>
+        <property name="user">root</property>
+        <property name="password">123456</property>
+        <property name="driverClass">com.mysql.cj.jdbc.Driver</property>
+        <property name="jdbcUrl">jdbc:mysql://localhost:3306/jdbc?&amp;useSSL=false&amp;serverTimezone=UTC</property>
+
+    </default-config>
+
+    <!-- 用户指定的    -->
+    <named-config name = "rj">
+        <property name="user">root</property>
+        <property name="password">123456</property>
+        <property name="driverClass">com.mysql.cj.jdbc.Driver</property>
+        <property name="jdbcUrl">jdbc:mysql://localhost:3306/jdbc?&amp;useSSL=false&amp;serverTimezone=UTC</property>
+
+    </named-config>
+
+
+</c3p0-config>
